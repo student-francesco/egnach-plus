@@ -5,6 +5,9 @@ announcements: the real app runs inside a phone on an animated four-colour
 gradient with a doodle pattern, the camera pushes towards whatever matters,
 and UI elements lift out of the screen while the rest dims.
 
+The current cut is committed as `egnach-plus-demo.mp4` (1080×1080, 60 fps).
+It is stored with Git LFS; run `git lfs pull` if you only see a pointer file.
+
 ## Render
 
 ```bash
