@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# demo video output
+demo-video/*.mp4
+demo-video/stills

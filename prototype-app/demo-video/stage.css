@@ -1,0 +1,185 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #0d1a14;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font-family: inherit; }
+
+#viewport {
+  position: relative;
+  overflow: hidden;
+  perspective: 2600px;
+}
+
+#gradient {
+  position: absolute;
+  image-rendering: auto;
+}
+
+#pattern {
+  position: absolute;
+  background-repeat: repeat;
+  mix-blend-mode: soft-light;
+  opacity: 0.55;
+}
+
+#vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 45%, rgba(0, 0, 0, 0) 55%, rgba(4, 30, 22, 0.22) 100%);
+}
+
+#cam {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform-origin: 0 0;
+  transform-style: preserve-3d;
+}
+
+/* ── Phone ─────────────────────────────────────────────── */
+
+#phone {
+  position: absolute;
+  border-radius: 62px;
+  background: linear-gradient(150deg, #3a3c41 0%, #16171a 38%, #0b0b0d 70%, #2a2b2f 100%);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.16),
+    inset 0 0 0 5px #070708,
+    0 50px 90px rgba(6, 40, 28, 0.32),
+    0 16px 34px rgba(6, 40, 28, 0.22);
+}
+
+.phone-key {
+  position: absolute;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2c2d31, #4a4b50);
+}
+
+#screen {
+  position: absolute;
+  overflow: hidden;
+  background: #FBFAF7;
+  transform: translateZ(0);
+}
+
+#statusbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 34px 0 46px;
+  background: #FBFAF7;
+  color: #000;
+  z-index: 2;
+}
+
+#statusbar .time {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+#statusbar .icons { display: flex; align-items: center; gap: 6px; }
+
+#island {
+  position: absolute;
+  left: 50%;
+  top: 11px;
+  width: 124px;
+  height: 36px;
+  margin-left: -62px;
+  border-radius: 18px;
+  background: #000;
+  z-index: 3;
+}
+
+#app {
+  position: absolute;
+  left: 0;
+  border: 0;
+  display: block;
+  background: #FBFAF7;
+}
+
+#dim {
+  position: absolute;
+  inset: 0;
+  background: rgb(8, 22, 18);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+#homebar {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 136px;
+  height: 5px;
+  margin-left: -68px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.82);
+  z-index: 5;
+}
+
+/* ── Flying clones & touches ───────────────────────────── */
+
+#fly, #touches {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+}
+
+/* keep the overlays strictly in front of the phone's plane */
+#fly { transform: translateZ(2px); }
+#touches { transform: translateZ(4px); }
+
+.fly-item {
+  position: absolute;
+  transform-origin: 50% 50%;
+  will-change: auto;
+}
+
+.fly-item > * {
+  margin: 0 !important;
+}
+
+/* same as the app's demo CSS: hide wireframe hint labels on placeholder photos */
+.fly-item span[style*="ui-monospace"] {
+  display: none !important;
+}
+
+.touch {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  background: rgba(36, 48, 58, 0.26);
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+.touch-ring {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+}
